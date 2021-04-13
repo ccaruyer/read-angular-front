@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  studentEndPoint:"https://readapi.herokuapp.com/"
+  EndPoint:"https://readapi.herokuapp.com/"
 };
