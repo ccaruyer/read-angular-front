@@ -18,10 +18,9 @@ const routes: Routes = [
       },
       {
         path: 'books-form', component: BookFormComponent
-
       },
       {
-        path: "books-form/:id", component: BookFormComponent
+        path: 'books-form/:id', component: BookFormComponent
       },
       {
         path: '**', component: NotFoundComponent

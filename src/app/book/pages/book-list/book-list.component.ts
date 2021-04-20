@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Book } from 'src/app/core/models/book';
+import { BookFormData } from 'src/app/core/models/book-form-data';
 import { BookService } from 'src/app/core/services/http/book.service';
 
 @Component({
@@ -14,16 +15,11 @@ export class BookListComponent implements OnInit {
   books$: Observable<Book[]>;
   displayedColumns: string[] = ['id', 'title', 'summary', 'kind', 'author', 'edit', 'delete'];
   books = [];
-  constructor(private _bookService: BookService, private _router: Router) { }
+  constructor(private _bookService: BookService, private _router: Router, private route: ActivatedRoute,) { }
 
   ngOnInit(): void {
     this.books$ = this._bookService.get();
-
-  }
-
-  put(id) {
-    this._router.navigateByUrl("books/books-form/" + id);
-  }
+  };
 
   deleteOne(id) {
     this._bookService.deleteOne(id).subscribe(next => {
@@ -33,7 +29,14 @@ export class BookListComponent implements OnInit {
   }
 
   goToForm() {
-    this._router.navigateByUrl("books/books-form");
+    this._router.navigateByUrl('books/books-form');
+
   }
 
-}
+  //new
+  update(id) {
+    this._router.navigateByUrl('books/books-form/' + id);
+
+  }
+
+};

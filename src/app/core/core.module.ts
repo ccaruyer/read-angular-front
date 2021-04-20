@@ -21,7 +21,7 @@ import { KindService } from './services/http/kind.service';
   providers: [
     BookService,
     AuthorService,
-    KindService
+    KindService,
   ]
 })
 export class CoreModule { }

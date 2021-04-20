@@ -1,11 +1,11 @@
 <form [formGroup]="kindForm" (ngSubmit)="onSubmitKind(kindForm.value)">
-    <h2 mat-dialog-title>Kind FORM</h2>
+    <h2 mat-dialog-title>{{formAction}} FORM</h2>
     <mat-dialog-content class="mat-typography">
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
                 <input matInput placeholder="Fantastic" type="text" formControlName="name" required>
-                <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+                <mat-icon zmatPrefix>sentiment_very_satisfied</mat-icon>
             </mat-form-field>
         </div>
 
