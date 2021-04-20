@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  EndPoint:"https://readapi.herokuapp.com/"
+  BookEndPoint: "https://readapi.herokuapp.com/books",
+  KindEndPoint: "https://readapi.herokuapp.com/kinds",
+  AuthorEndPoint: "https://readapi.herokuapp.com/authors"
 };

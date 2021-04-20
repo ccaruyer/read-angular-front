@@ -1,0 +1,48 @@
+<br>
+<mat-card>
+    <h3>Add a book</h3>
+    <div *ngIf="putRequest === false">
+        <form [formGroup]="bookForm" (ngSubmit)=onSubmit(bookForm.value)>
+            <mat-form-field appearance="fill">
+                <mat-label>title</mat-label>
+                <input matInput formControlName="title" placeholder="Jack" type="text">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>summary</mat-label>
+                <textarea matInput formControlName="summary" placeholder="Jack" type="textarea"></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Kinds</mat-label>
+                <mat-select formControlName="kind">
+                    <mat-option *ngFor="let kind of kinds | async" value="{{kind.id}}">
+                        {{kind.name}}
+                    </mat-option>
+                </mat-select>
+                <span matSuffix>
+                    <mat-icon (click)="openDialog(false, undefined)">add_circle_outline</mat-icon>
+                </span>
+            </mat-form-field>
+
+
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Authors</mat-label>
+                <mat-select formControlName="author">
+                    <mat-option *ngFor="let author of authors | async" value="{{author.id}}">
+                        {{author.lastName}} {{author.firstName}}
+                    </mat-option>
+                </mat-select>
+                <span matSuffix>
+                    <mat-icon>add_circle_outline</mat-icon>
+                </span>
+            </mat-form-field>
+
+            <br>
+            <button mat-raised-button [disabled]="!bookForm.valid">
+                <mat-icon>add</mat-icon>ajouter
+            </button>
+        </form>
+    </div>
+</mat-card>

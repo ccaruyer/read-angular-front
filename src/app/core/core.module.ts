@@ -2,34 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatSliderModule } from '@angular/material/slider';
-import {MatMenuModule,} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatCardModule} from '@angular/material/card';
+import { SharedModule } from '../shared/shared.module';
+import { BookService } from './services/http/book.service';
+import { AuthorService } from './services/http/author.service';
+import { KindService } from './services/http/kind.service';
 
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
   imports: [
     CommonModule,
-    MatToolbarModule,
-    MatSliderModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonToggleModule,
-    MatCardModule
+    SharedModule,
   ],
-  exports:[
+  exports: [
     HeaderComponent,
     FooterComponent,
-    MatToolbarModule,
-    MatSliderModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonToggleModule,
-    MatCardModule
-  ], 
+  ],
+  providers: [
+    BookService,
+    AuthorService,
+    KindService
+  ]
 })
 export class CoreModule { }

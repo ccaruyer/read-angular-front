@@ -1,20 +1,26 @@
 <mat-toolbar color="primary">
     <mat-icon>menu</mat-icon>
+    <mat-icon></mat-icon>
     &nbsp;
     <span>READ WEB SERVICE</span>
     &nbsp;
+    <button mat-button style="align-items: center; text-align: center; justify-content: center;">
+        <a href=''>
+            <mat-icon>home</mat-icon>
+        </a>
+    </button>
+    <button mat-button [matMenuTriggerFor]="menu">Books</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item><a href='books' class="menu">Books list</a></button>
+        <button mat-menu-item><a href='books/books-form' class="menu">Add books</a></button>
+    </mat-menu>
     &nbsp;
+    <button mat-button><a href='authors'>Authors</a></button>
+
     &nbsp;
-    <span>
-        <a>home</a>
-        &nbsp;
-        <a>books</a>
-        &nbsp;
-        <a>authors</a>
-        &nbsp;
-        <a>kinds</a>
-    </span>
+    <button mat-button><a href='kinds'>Kinds</a></button>
+
+
+
     <span class="example-spacer"></span>
-    <mat-icon>logout</mat-icon>
-    <mat-icon>login</mat-icon>
 </mat-toolbar>
