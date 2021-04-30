@@ -4,6 +4,7 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 import { Author } from 'src/app/core/models/author';
 import { AuthorFormData } from 'src/app/core/models/author-form-data';
 import { AuthorService } from 'src/app/core/services/http/author.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-author-form',
@@ -24,10 +25,12 @@ export class AuthorFormComponent implements OnInit {
     this.formAction = data.toUpdate ? "Modifier" : "Ajouter";
 
     if (data.toUpdate) {
+      const birthDayForm = new DatePipe('en-US').transform(data.author.birthDay, 'yyyy-MM-dd');
+      //console.log(birthDayForm);
       this.authorForm = this.fb.group({
         firstName: [data.author.firstName, [Validators.required, this.noWhitespaceValidator]],
         lastName: [data.author.lastName, [Validators.required, this.noWhitespaceValidator]],
-        birthDay: [data.author.birthDay, [Validators.required, this.noWhitespaceValidator]]
+        birthDay: [birthDayForm, [Validators.required, this.noWhitespaceValidator]]
       })
     }
     else {
