@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Informations
+
+Ce projet a été crée dans le cadre d'un projet de cours.
+Il va de pair avec le projet : [read_api](https://github.com/ccaruyer/read_api)
+
+Ce projet a été hébergé sur Heroku afin de le déployé tandis que l'api est mise en place avec Firebase. 
+(Ce project n'est peut-être plus disponible à l'heure actuelle)
